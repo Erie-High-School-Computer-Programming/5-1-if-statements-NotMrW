@@ -1,3 +1,4 @@
+import random
 def  check_age_21(age: int) -> bool:
     """
     Implement a function that checks if a given age is 21 or older
@@ -93,20 +94,24 @@ def check_weather(weather: str) -> bool:
     and it must return the weather if it is valid
     """
 
-    validweather == list['sunny', 'rainy','snowy', 'wind']
-    if weather in list:
+    validweather=['sunny', 'rainy','snowy', 'wind']
+    if weather in validweather:
         return True 
     else:
         return False
 
-def check_if_you_can_play_game(can_you_play_game: str) -> bool:
+def check_if_you_can_play_game(can_you_play_game: str) -> str:
     """
-    Implement a function that checks if a given string can_you_play_game is valid
-    make it random generate a random boolean value (True or False)
-    and it must return 'You can play game' if it is valid
+    Check if a given string can_you_play_game is valid and randomly return
+    'You can play game' if valid, otherwise return False.
     """
-    
-    
+    # Check if the input is valid (non-empty in this case)
+    if can_you_play_game:
+        # Generate a random boolean
+        can_play = random.choice([True, False])
+        if can_play:
+            return 'You can play game'
+    return False
 
 
 
@@ -119,6 +124,10 @@ def check_study_time_or_play_time(study_time_or_play_time: str) -> bool:
     and it must return the study_time_or_play_time if it is valid
     """
 
+    if study_time_or_play_time in (['study', 'play']):
+            return True
+    else:
+        return False
 
 
 
@@ -129,7 +138,16 @@ def make_the_input_store_in_variable(input_string: str) -> str:
     and use if-else statements to check the type of the input_string and convert it to the appropriate data type
     """
 
+    user_input = input_string
+    try:
+        user_input = float(user_input)
 
+        if user_input == int(user_input):
+            return int(user_input)
+        else:
+            return user_input
+    except:
+        return user_input
 
 
 def check_if_the_number_is_even(number: int) -> bool:
@@ -137,4 +155,8 @@ def check_if_the_number_is_even(number: int) -> bool:
     Implement a function that checks if a given number is even
     return True if the number is even, otherwise return False
     """
-    
+    x = number
+    if (x%2):
+        return False
+    else:
+        return True
